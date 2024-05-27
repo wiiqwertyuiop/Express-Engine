@@ -1,12 +1,11 @@
 import express, { Express } from "express";
-import "./controllers";
-import { ROUTE_MAP } from "./decorator";
+import { ROUTE_MAP } from "./src/common/decorators/controller.decorator";
+import "./src/controllers/controllers";
 
 const app: Express = express();
 const port = 8080;
 
 ROUTE_MAP.forEach((route) => {
-    console.log(route.route)
     app.use(route.route, route.children);
 });
 
