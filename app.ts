@@ -2,7 +2,7 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import express, { Express, NextFunction, Request, Response } from "express";
 import { ROUTE_MAP } from "./src/common/decorators/controller.decorator";
-import { compileTemplate, loadTemplateFiles } from "./src/common/template/template";
+import { compileTemplate } from "./src/common/template/template";
 import "./src/controllers/controllers";
 
 const app: Express = express();
@@ -15,9 +15,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 // Server static files
 app.use(express.static("public"));
-
-// Load template files
-loadTemplateFiles();
 
 // Handle controller routes
 ROUTE_MAP.forEach((route) => {
