@@ -1,6 +1,6 @@
 ## MVC + HTMX Mini Express Server
 
-Based off of NestJS and MVC principles, this is able to act as a standalone front+backend. Featuring:
+Based off of ideas from NestJS and using MVC principles, this mini server able to act as a standalone front+backend. Featuring:
 
 1. Serving static files
 2. Customer controller wrapper for easy routing.
