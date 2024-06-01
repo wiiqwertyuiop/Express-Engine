@@ -7,7 +7,7 @@ export const ROUTE_MAP = new Map<string, {
 }>();
 
 export interface Options {
-    referer?: boolean
+    needsReferer?: boolean
 }
 
 export function Controller(route: string, options?: Options) {

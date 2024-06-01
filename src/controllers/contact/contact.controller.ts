@@ -3,7 +3,7 @@ import { Controller, Get, Put } from "../../common/decorators/controller.decorat
 import { compileTemplate } from "../../common/template/template";
 import { Contact } from "../../models/contact/contact.model";
 
-@Controller('/contact', { referer: true })
+@Controller('/contact', { needsReferer: true })
 export class ContactController {
 
   constructor() { }

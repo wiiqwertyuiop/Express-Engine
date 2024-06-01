@@ -20,7 +20,7 @@ app.use(express.static("public"));
 ROUTE_MAP.forEach((route) => {
     app.use(route.route, (req: Request, res: Response, next: NextFunction) => {
         // Handle middleware
-        if (route.options?.referer === true && !req.headers.referer) {
+        if (route.options?.needsReferer === true && !req.headers.referer) {
             res.status(404);
             res.send(compileTemplate("404.html"));
             return;
