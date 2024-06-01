@@ -3,24 +3,31 @@ import { Router } from "express";
 export const ROUTE_MAP = new Map<string, {
     route: string;
     children: Router[];
+    options?: Options;
 }>();
 
-export function Controller(route: string) {
+export interface Options {
+    referer?: boolean
+}
+
+export function Controller(route: string, options?: Options) {
     return (target: Function) => {
         const key = target.prototype["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
         if (!entry) {
             ROUTE_MAP.set(key, {
                 route: route,
-                children: []
+                children: [],
+                options
             });
             return;
         }
         entry.route = route;
+        entry.options = options;
     }
 }
 
-export function Get(path: string) {
+export function Get(path: string = "") {
     return (target: any, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
@@ -36,7 +43,7 @@ export function Get(path: string) {
     }
 }
 
-export function Post(path: string) {
+export function Post(path: string = "") {
     return (target: any, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
@@ -52,7 +59,7 @@ export function Post(path: string) {
     }
 }
 
-export function Put(path: string) {
+export function Put(path: string = "") {
     return (target: any, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
@@ -68,7 +75,7 @@ export function Put(path: string) {
     }
 }
 
-export function Delete(path: string) {
+export function Delete(path: string = "") {
     return (target: any, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
