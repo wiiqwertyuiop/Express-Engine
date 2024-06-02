@@ -12,3 +12,7 @@ Based off of ideas from NestJS and using MVC principles, this mini server able t
 WIP, but looking forward to experimenting and using this more in the future.
 
 I also have a Go version here: https://github.com/wiiqwertyuiop/HTMX-EngineG
+
+## How to run
+
+After installing dependencies with `npm i`, simply use `npm run start` to start the server.
