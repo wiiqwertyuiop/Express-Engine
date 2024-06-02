@@ -1,10 +1,12 @@
 import { Router } from "express";
 
-export const ROUTE_MAP = new Map<string, {
+export const ROUTE_MAP = new Map<string, ControllerInfo>();
+
+interface ControllerInfo {
     route: string;
     children: Router[];
     options?: Options;
-}>();
+}
 
 export interface Options {
     needsReferer?: boolean
