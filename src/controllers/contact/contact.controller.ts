@@ -6,8 +6,6 @@ import { Contact } from "../../models/contact/contact.model";
 @Controller('/contact', { needsReferer: true })
 export class ContactController {
 
-  constructor() { }
-
   @Get()
   getContact(request: Request, response: Response) {
     if (!request.cookies['contact']) {

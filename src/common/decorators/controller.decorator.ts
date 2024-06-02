@@ -30,7 +30,7 @@ export function Controller(route: string, options?: Options) {
 }
 
 export function Get(path: string = "") {
-    return (target: any, _: string, descriptor: PropertyDescriptor) => {
+    return (target: Object, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
         const fun = Router({ mergeParams: true }).get(path, descriptor.value);
@@ -46,7 +46,7 @@ export function Get(path: string = "") {
 }
 
 export function Post(path: string = "") {
-    return (target: any, _: string, descriptor: PropertyDescriptor) => {
+    return (target: Object, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
         const fun = Router({ mergeParams: true }).post(path, descriptor.value);
@@ -62,7 +62,7 @@ export function Post(path: string = "") {
 }
 
 export function Put(path: string = "") {
-    return (target: any, _: string, descriptor: PropertyDescriptor) => {
+    return (target: Object, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
         const fun = Router({ mergeParams: true }).put(path, descriptor.value);
@@ -78,7 +78,7 @@ export function Put(path: string = "") {
 }
 
 export function Delete(path: string = "") {
-    return (target: any, _: string, descriptor: PropertyDescriptor) => {
+    return (target: Object, _: string, descriptor: PropertyDescriptor) => {
         const key = target["constructor"].toString();
         const entry = ROUTE_MAP.get(key);
         const fun = Router({ mergeParams: true }).delete(path, descriptor.value);

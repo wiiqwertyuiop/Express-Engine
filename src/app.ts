@@ -7,6 +7,8 @@ import "./controllers/registery";
 
 const app: Express = express();
 const port = 8080;
+
+// Setup app
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
