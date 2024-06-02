@@ -1,9 +1,9 @@
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import express, { Express, NextFunction, Request, Response } from "express";
-import { ROUTE_MAP } from "./src/common/decorators/controller.decorator";
-import { compileTemplate } from "./src/common/template/template";
-import "./src/controllers/controllers";
+import { ROUTE_MAP } from "./common/decorators/controller.decorator";
+import { compileTemplate } from "./common/template/template";
+import "./controllers/registery";
 
 const app: Express = express();
 const port = 8080;

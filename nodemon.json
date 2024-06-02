@@ -1,7 +1,6 @@
 {
     "watch": [
-        "src",
-        "app.ts"
+        "src"
     ],
     "ext": "ts",
     "exec": "npm run start"
